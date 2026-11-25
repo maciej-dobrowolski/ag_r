@@ -1,0 +1,39 @@
+---
+title: "Raport"
+output: html_document
+date: "2026-11-18"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(naniar)
+dane <- read.csv("sets_export.csv")
+```
+
+# 2. Wprowadzanie
+
+tutaj opiszczie wprowadzenie do projektu, cel analizy oraz jakie dane zostały użyte
+
+# 2. Porządkowanie i czyszczenie danych
+
+## 2.1 Braki danych
+
+```{r}
+vis_miss(dane)
+```
+
+```{r}
+gg_miss_fct(dane, fct = release_date)
+```
+
+
+
+```{r}
+gg_miss_upset(dane,
+            nsets = 5)
+```
+
